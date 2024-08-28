@@ -1,0 +1,38 @@
+Autoloading squashfs/4.5.1
+Autoloading squashfuse/0.1.104
+Autoloading squashfs
+Autoloading squashfuse
+Unloading apptainer/1.1.9
+Autoloading zlib/1.2.13
+Unloading squashfuse/0.1.104 <aL>
+Autoloading zlib/1.2.13
+Unloading squashfs/4.5.1 <aL>
+Unloading zlib/1.2.13 <aL>
+Unloading openmpi/4.1.5
+Unloading slurm/23.02.7
+Loading slurm/23.02.7
+Loading openmpi/4.1.5
++ '[' 4 -eq 0 ']'
++ mkdir -p ./reports
++ REPORT_FILE=./reports/overall_report.txt
++ echo 'Disk Usage Report'
++ echo ==================
++ echo 'Job ID: 15201700'
++ echo 'Job Name: ncdu_check'
+++ date
++ echo 'Start Time: Wed Aug 28 14:52:14 PDT 2024'
++ echo ''
++ for DIR_CHECK in "$@"
++ '[' -d /group/ctbrowngrp/ ']'
++ echo 'Checking directory: /group/ctbrowngrp/'
++ echo ------------------------------------------------------------------------------------------
+++ basename /group/ctbrowngrp/
++ BASE_NAME=ctbrowngrp
++ LOG_FILE=./reports/ctbrowngrp_log.txt
++ df -h /group/ctbrowngrp/
++ tee ./reports/ctbrowngrp_log.txt
++ echo ''
++ echo 'Running ncdu for /group/ctbrowngrp/'
++ tee -a ./reports/ctbrowngrp_log.txt
++ ./scripts/read_ncdu.py
++ ncdu /group/ctbrowngrp/ -o-

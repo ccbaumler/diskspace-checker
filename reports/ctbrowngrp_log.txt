@@ -1,0 +1,4 @@
+Filesystem                            Size  Used Avail Use% Mounted on
+nas-6-0-ib:/nas-6-0/ctbrowngrp/group  220T  219T  1.3T 100% /group/ctbrowngrp
+
+Running ncdu for /group/ctbrowngrp/
