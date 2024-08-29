@@ -1,6 +1,6 @@
 #! /bin/bash -login
 
-#SBATCH -D /home/baumlerc/diskusage-check  # Working directory for the job
+#SBATCH -D /home/baumlerc/diskspace-checker  # Working directory for the job
 #SBATCH -o ./logs/ncdu.%j.out              # Standard output file
 #SBATCH -e ./logs/ncdu.%j.err              # Standard error file
 #SBATCH -p high2                            # Partition to submit to
@@ -96,4 +96,3 @@ done
 ## find . -maxdepth 1 -type d -print0 | xargs -0 -n 1 -P 4 du -sh | sort -hr
 
 ## du -sh --max-depth=1 | sort -hr
-
