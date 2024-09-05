@@ -67,6 +67,12 @@ for DIR_CHECK in "$@"; do
             echo ""
         } | tee "$LOG_FILE" >> "$REPORT_FILE"
 
+        # Return the dates of the directories
+        {
+            echo "Per.      Links  Owner Group    Size  Date Modified   Name" && ls -lathr "$DIR_CHECK"
+            echo ""
+        } | tee "$LOG_FILE" >> "$REPORT_FILE"
+
         # Log disk usage using ncdu and custom script https://unix.stackexchange.com/questions/689668/bash-make-du-show-output-similar-to-ncdu/689673#689673
         {
             echo "Running ncdu for $DIR_CHECK"
