@@ -9,7 +9,7 @@
 #SBATCH -N 1                                # Number of nodes
 #SBATCH -n 1                                # Number of tasks
 #SBATCH -c 1                                # Number of CPU cores per task
-#SBATCH --mem=32G                           # Memory per node
+#SBATCH --mem=64G                           # Memory per node
 #SBATCH --mail-type=ALL                     # Send email on all job events
 #SBATCH --mail-user=ccbaumler@ucdavis.edu   # Email address for notifications
 
@@ -34,10 +34,12 @@ if [ "$#" -eq 0 ]; then
 fi
 
 # Create a report directory if it does not exist
-mkdir -p ./reports
+NOW=$(date +'%Y%m%d')
+
+mkdir -p ./$NOW-reports
 
 # Create overall report file containing all the information in one place
-REPORT_FILE="./reports/overall_report.txt"
+REPORT_FILE="./$NOW-reports/overall_report.txt"
 {
     echo "Disk Usage Report"
     echo "=================="
@@ -57,7 +59,7 @@ for DIR_CHECK in "$@"; do
         } >> "$REPORT_FILE"
 
         BASE_NAME=$(basename "$DIR_CHECK")
-        LOG_FILE="./reports/${BASE_NAME}_log.txt"
+        LOG_FILE="./$NOW-reports/${BASE_NAME}_log.txt"
 
         # Return the free diskspace for directory
         {
