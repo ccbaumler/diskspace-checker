@@ -4,6 +4,31 @@ Disk space is finite. Freedom isn't free. Healthy boundaries allow everyone to h
 
 This is a way of finding were the free disk space has gone.
 
+## Output
+
+The workflow will automatically generate two directories:
+
+- In `<date>-reports` directory:
+  - `overall_report.txt`
+    - This will contain the output for `df -h`, `ls -lathr`, and `ncdu`.
+    - This will allow the user to identify the total diskspace free, the date of lasat modification of files in sub-directories within the CLI directory, and the amount of diskspace each sub-directory is using at the time of execution.
+  - `<basename_directory>_log.txt`
+    - This will contain the output for `ls -lathr`, and `ncdu`.
+    - This will be a simpler text file to see the modification date and diskusage of each sub-directory.
+
+- In `logs` directory:
+  - `ncdu.<slurm_jobid>.err`
+  - `ncdu.<slurm_jobid>.out`
+
+## Workflow
+
+1. Run the CLI example below
+    a. Optionally, use `less +F overall_report.txt` to automatically load the appended data as the script runs
+2. Review the `overall_report.txt`
+3. Enter the directory you would like to begin purging files
+4. Run `ncdu` within that directory
+> `ncdu` or "NCurses Disk Usage" utilizes an interactive terminal experience that makes this task more pleasant [Documenation](https://dev.yorhel.nl/ncdu)
+
 ## Getting Started
 
 Clone the repo:
@@ -350,20 +375,11 @@ End Time: Fri Sep  6 00:54:14 PDT 2024
 
 </details>
 
-## Workflow
+## Why you should probably care about this
 
-1. Run the CLI example above
-    a. Optionally, use `less +F overall_report.txt` to automatically load the appended data as the script runs
-2. Review the `overall_report.txt`
-3. Enter the directory you would like to begin purging files
-4. Run `ncdu` within that directory
-> `ncdu` or "NCurses Disk Usage" utilizes an interactive terminal experience that makes this task more pleasant [Documenation](https://dev.yorhel.nl/ncdu)
-
-## Highlights that you probably care about
-
-Ever need to see a print out of diskspace by directory?
-Ever need to run a long running workflow and do not want it to suddenly receive a `OOM` error?
-Ever need some disk space?
+- Ever need to see a print out of diskspace by directory?
+- Ever need to run a long running workflow and do not want it to suddenly receive a `OOM` error?
+- Ever need some disk space?
 
 Run this and find what can be cast into the void.
 
