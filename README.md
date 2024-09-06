@@ -41,6 +41,18 @@ git clone git@github.com:ccbaumler/diskspace-checker.git
 cd diskspace-checker
 ```
 
+Please edit line 3 and line 14 in `scripts/du-check.sh:
+
+line 3
+```
+#SBATCH -D /home/baumlerc/diskspace-checker  # Working directory for the job
+```
+
+line 14
+```
+#SBATCH --mail-user=ccbaumler@ucdavis.edu   # Email address for notifications
+```
+
 ## Usage
 
 Run whenever you need to see where the diskspace has gone...
