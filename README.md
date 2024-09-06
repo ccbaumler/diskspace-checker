@@ -15,6 +15,11 @@ The workflow will automatically generate two directories:
   - `<basename_directory>_log.txt`
     - This will contain the output for `ls -lathr`, and `ncdu`.
     - This will be a simpler text file to see the modification date and diskusage of each sub-directory.
+> [!CAUTION]
+>
+> "One thing that will require an admin to run this script is that typical users can't estimate the size of other users' protected directories."
+> 
+> \- [@mr-eyes](https://github.com/mr-eyes)
 
 - In `logs` directory:
   - `ncdu.<slurm_jobid>.err`
